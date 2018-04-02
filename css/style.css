@@ -11,17 +11,29 @@ header {
 #main {
 	height: 80vh;
 	width: 80vw;
+	margin: auto;
+	background-color: blue;
+	border: 1px solid black;
 }
 
 footer {
 	height: 10vh;
 	width: 100vw;
 }
+
 .tile_row {
-	height: auto;
+	height: 25%;
 	width: 100%;
+	background-color: green;
+	border: 1px solid black;
 }
+
 .tile {
-	display: inline-block;
-	float: right;
+	height: 100%;
+	width: 22%;
+	background-color: white;
+	border: 1px solid black;
+	display:inline-block;
+	margin: auto;
+
 }
