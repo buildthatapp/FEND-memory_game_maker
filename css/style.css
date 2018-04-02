@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+
+}
+
+header {
+	height: 10vh;
+	width: 100vw;
+}
+
+#main {
+	height: 80vh;
+	width: 80vw;
+}
+
+footer {
+	height: 10vh;
+	width: 100vw;
+}
+.tile_row {
+	height: auto;
+	width: 100%;
+}
+.tile {
+	display: inline-block;
+	float: right;
+}
