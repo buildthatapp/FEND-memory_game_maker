@@ -61,15 +61,6 @@ body {
   background-color: gray;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: white;
-}
-
 main {
   display: flex;
   flex-flow: wrap;
@@ -87,15 +78,11 @@ main {
   margin: 10px;
   border: .5px solid #CC6414;
   background-color: #0059B2;
-  transparent: 75%;
+  color: #0059B2;
 }
 
 .project:hover{
-  background: white;
-}
-
-img {
-  width: inherit;
+  border: 3px solid white;
 }
 
 h2 { text-align: center;}
@@ -103,7 +90,4 @@ h2 a { color: white;}
 h3 { text-align: center;}
 h3 a { color: white;}
 
-footer {
-  text-align: center;
-  font-weight: bold;
-}
+
