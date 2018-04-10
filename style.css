@@ -1,0 +1,109 @@
+/*Stylesheet for Stage 1*/
+
+/* Color Scheme:
+#02b3e4 - cyan
+#02ccba - aquamarine
+#294860 - dark blue
+#4CB24B - dark green
+#4119FF - dark blue
+#02FF00 - light green
+#CC6414 - light orange
+#B2662B - dark orange
+*/
+
+* {
+  /*outline: 1px solid red !important;*/
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+p {
+	color: white;
+}
+ul {
+	color: white;
+}
+
+header, main, nav, aside, footer {
+  flex: 1 100%;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  background-color: inherit;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 20px;
+  padding: 10px;
+  margin-top: 80px;
+  color: white;
+}
+
+#subtitle {
+  text-align: center;
+  color: #abd;
+  font-size: 1.2em;
+}
+
+body {
+  margin: 0px;
+  font-family: Helvetica;
+  color: #035;
+  background-color: gray;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  height: 70vh;
+  width: 60vw;
+  margin: auto;
+}
+
+.project {
+  width: 22%;
+  height: 22%;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  border: .5px solid #CC6414;
+  background-color: #0059B2;
+  transparent: 75%;
+}
+
+.project:hover{
+  background: white;
+}
+
+img {
+  width: inherit;
+}
+
+h2 { text-align: center;}
+h2 a { color: white;}
+h3 { text-align: center;}
+h3 a { color: white;}
+
+footer {
+  text-align: center;
+  font-weight: bold;
+}
