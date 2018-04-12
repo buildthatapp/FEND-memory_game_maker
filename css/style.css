@@ -17,15 +17,12 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 ul {
-	color: white;
+  color: white;
 }
-
 header, main, nav, aside, footer {
   flex: 1 100%;
 }
-
 nav {
   width: 100%;
   position: fixed;
@@ -34,7 +31,6 @@ nav {
   flex-flow: wrap;
   justify-content: center;
 }
-
 h1 {
   text-align: center;
   margin: 0 20px;
@@ -42,20 +38,17 @@ h1 {
   margin-top: 80px;
   color: black;
 }
-
 #subtitle {
   text-align: center;
   color: #abd;
   font-size: 1.2em;
 }
-
 body {
   margin: 0px;
   font-family: Helvetica;
   color: #035;
   background-color: white;
 }
-
 main {
   display: flex;
   flex-flow: wrap;
@@ -64,7 +57,6 @@ main {
   width: 60vw;
   margin: auto;
 }
-
 .project {
   width: 22%;
   height: 22%;
@@ -78,11 +70,9 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
-
-.project:hover{
+.project:hover {
   border: 3px solid black;
 }
-
 .revealCard {
   background-color: white;
   color: black;
@@ -91,7 +81,6 @@ main {
   text-align: center;
   font-size: 24px;
 }
-
 .matchFound {
   background-color: green;
   color: white;
@@ -99,12 +88,11 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   font-size: 24px;
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
-
 .matchNotFound {
   background-color: red;
   color: white;
@@ -112,33 +100,34 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   font-size: 24px;
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
-
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
   20%, 80% {
     transform: translate3d(2px, 0, 0);
   }
-
   30%, 50%, 70% {
     transform: translate3d(-4px, 0, 0);
   }
-
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
 }
-
-h2 { text-align: center;}
-h2 a { color: white;}
-h3 { text-align: center;}
-h3 a { color: white;}
-
-
+h2 {
+  text-align: center;
+}
+h2 a {
+  color: white;
+}
+h3 {
+  text-align: center;
+}
+h3 a {
+  color: white;
+}
