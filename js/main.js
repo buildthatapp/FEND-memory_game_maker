@@ -7,6 +7,7 @@
 	game_win_condition: when the number of correct answers reaches this number, the game is won
 	max_face_up_cards: the maximum number of face up cards allowed while guessing a match
 	wait_time: wait time for setTimeout functions. can be adjusted to make addClass and removeClass speed up or slow down
+	cards[]: array of cards, 1 through 8, will get shuffed using Fischer - Yates algorithm, then inserted into DOM
 */
 var cardsFlipped = 0
 var card_values = [];
@@ -35,7 +36,6 @@ $(document).ready(function() {
 		restart_game();
 	})
 });
-
 //Timer countup
 $(document).ready(function() {
 	var minutesLabel = document.getElementById("minutes");
@@ -70,7 +70,6 @@ $(document).ready(function() {
 			card_values.push($(this).html());
 			card_elements.push($(this).attr('id'))
 			cardsFlipped = cardsFlipped + 1;
-
 			if (cardsFlipped === max_face_up_cards) {
 				//when the user has flipped over 2 cards, compare their values
 				compare_cards();
@@ -83,14 +82,14 @@ function compare_cards() {
 	//if the value stored within the two flipped cards is the same, then add a matchFound class to the card element
 	$('#moves').text('Moves : ' + (correct + incorrect + 1));
 	if (correct + 1 > incorrect) {
-				$('#rating').html('&#x2606;&#x2606;&#x2606;');
-			}
-			if ((correct <= incorrect ) & (correct + 3 <= incorrect)) {
-				$('#rating').html('&#x2606;&#x2606;');
-			}
-			if ((correct + 7)<= incorrect) {
-				$('#rating').html('&#x2606;');
-			}
+		$('#rating').html('&#x2606;&#x2606;&#x2606;');
+	}
+	if ((correct <= incorrect) & (correct + 3 <= incorrect)) {
+		$('#rating').html('&#x2606;&#x2606;');
+	}
+	if ((correct + 7) <= incorrect) {
+		$('#rating').html('&#x2606;');
+	}
 	if (card_values[0] === card_values[1]) {
 		$('#' + card_elements[0]).addClass('matchFound');
 		$('#' + card_elements[1]).addClass('matchFound');
@@ -114,9 +113,7 @@ function compare_cards() {
 					alert('Thanks for playing');
 				}
 			}
-			
-			
-				}, wait_time);
+		}, wait_time);
 	} else {
 		$('#' + card_elements[0]).addClass('matchNotFound');
 		$('#' + card_elements[1]).addClass('matchNotFound');
