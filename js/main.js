@@ -16,7 +16,50 @@ var incorrect = 0;
 var game_win_condition = 8;
 var max_face_up_cards = 2;
 var wait_time = 750;
+var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
+//card sort and insert into dom
+$(document).ready(function() {
+	console.log(cards);
+	shuffle(cards);
+	console.log(cards);
+	var index = 0;
+	while (index < cards.length) {
+		$('#card' + (index + 1)).append('<p>' + cards[index] + '</p>');
+		index += 1;
+	}
+});
+//restart game button
+$(document).ready(function() {
+	//Begin click event handling for the card elements	
+	$('#restart').click(function() {
+		restart_game();
+	})
+});
 
+//Timer countup
+$(document).ready(function() {
+	var minutesLabel = document.getElementById("minutes");
+	var secondsLabel = document.getElementById("seconds");
+	var totalSeconds = 0;
+	setInterval(setTime, 1000);
+
+	function setTime() {
+		if (correct != game_win_condition) {
+			++totalSeconds;
+			secondsLabel.innerHTML = pad(totalSeconds % 60);
+			minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+		}
+	}
+
+	function pad(val) {
+		var valString = val + "";
+		if (valString.length < 2) {
+			return "0" + valString;
+		} else {
+			return valString;
+		}
+	}
+});
 $(document).ready(function() {
 	//Begin click event handling for the card elements	
 	$('.project').click(function() {
@@ -24,9 +67,10 @@ $(document).ready(function() {
 		if (cardsFlipped < max_face_up_cards) {
 			$(this).addClass('revealCard');
 			//storing the card's text and ID into arrays
-			card_values.push($(this).text());
+			card_values.push($(this).html());
 			card_elements.push($(this).attr('id'))
 			cardsFlipped = cardsFlipped + 1;
+
 			if (cardsFlipped === max_face_up_cards) {
 				//when the user has flipped over 2 cards, compare their values
 				compare_cards();
@@ -37,6 +81,16 @@ $(document).ready(function() {
 //compares the value within two cards. accepts no params.
 function compare_cards() {
 	//if the value stored within the two flipped cards is the same, then add a matchFound class to the card element
+	$('#moves').text('Moves : ' + (correct + incorrect + 1));
+	if (correct + 1 > incorrect) {
+				$('#rating').html('&#x2606;&#x2606;&#x2606;');
+			}
+			if ((correct <= incorrect ) & (correct + 3 <= incorrect)) {
+				$('#rating').html('&#x2606;&#x2606;');
+			}
+			if ((correct + 7)<= incorrect) {
+				$('#rating').html('&#x2606;');
+			}
 	if (card_values[0] === card_values[1]) {
 		$('#' + card_elements[0]).addClass('matchFound');
 		$('#' + card_elements[1]).addClass('matchFound');
@@ -52,12 +106,17 @@ function compare_cards() {
 			if (correct === game_win_condition) {
 				if (confirm(
 						'Congratulations! You have won. Would you like to play again?')) {
+					alert('It took you ' + $('#minutes').text() + ' minutes : ' + $(
+						'#seconds').text() + ' seconds to win!');
+					alert('Your rating is :  ' + $('#rating').html());
 					restart_game();
 				} else {
 					alert('Thanks for playing');
 				}
 			}
-		}, wait_time);
+			
+			
+				}, wait_time);
 	} else {
 		$('#' + card_elements[0]).addClass('matchNotFound');
 		$('#' + card_elements[1]).addClass('matchNotFound');
@@ -85,4 +144,18 @@ function clear_cards_flipped(cards) {
 
 function restart_game() {
 	location.reload(true)
+}
+/**
+ * Fischer - Yates shuffle algorithm
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle(a) {
+	var j, x, i;
+	for (i = a.length - 1; i > 0; i--) {
+		j = Math.floor(Math.random() * (i + 1));
+		x = a[i];
+		a[i] = a[j];
+		a[j] = x;
+	}
 }
