@@ -8,6 +8,8 @@
 	max_face_up_cards: the maximum number of face up cards allowed while guessing a match
 	wait_time: wait time for setTimeout functions. can be adjusted to make addClass and removeClass speed up or slow down
 	cards[]: array of cards, 1 through 8, will get shuffed using Fischer - Yates algorithm, then inserted into DOM
+	state_of_cards{}: dictionary to keep track of the state of each card. true is face up, false is face down. state changes
+	based on user clicks and card comparisons
 */
 let cards_flipped = 0
 let card_values = [];
